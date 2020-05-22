@@ -10,6 +10,14 @@ Dependencies:
 Future goals:
   - reverse match: definition -> term using regex
   - add removal functionality
-  - make sure empty terms or definitions can't be input
-  - add functionality for terminal (w/o dialog)
+  x make sure empty terms or definitions can't be input
+  ? add functionality for terminal (w/o dialog)
   - tell user, upon attempt to recall, that pairs file is empty or nonexistent if necessary
+
+Edge cases:
+  x empty recall string
+  x empty record string for term
+  x empty record string for definition
+  x duplicate term
+  x nonexistent recall request
+  x strip leading and trailing whitespace
