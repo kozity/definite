@@ -9,15 +9,16 @@ Dependencies:
 
 Future goals:
   - reverse match: definition -> term using regex
-  - add removal functionality
-  x make sure empty terms or definitions can't be input
-  ? add functionality for terminal (w/o dialog)
+  - possibly add functionality for terminal (w/o dialog)
   - tell user, upon attempt to recall, that pairs file is empty or nonexistent if necessary
+    - handle file i/o better in general
 
-Edge cases:
-  x empty recall string
-  x empty record string for term
-  x empty record string for definition
-  x duplicate term
-  x nonexistent recall request
-  x strip leading and trailing whitespace
+Edge cases (marked with (x) if it is, to my knowledge, handled:
+  - (x) empty recall string
+  - (x) empty record string for term
+  - (x) empty record string for definition
+  - (x) duplicate term
+  - (x) nonexistent recall request
+  - (x) strip leading and trailing whitespace
+
+Do anything you want with this source code and call it anything you'd like. I think it's cool and useful.
