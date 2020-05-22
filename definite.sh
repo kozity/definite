@@ -31,7 +31,7 @@ case $1 in
     if [ -z "$choice" ]; then
       exit 1
     # ensure term is defined
-    elif [ -z "$(awk -F'////' '{print $1}' /home/ty/git/definite/pairs | grep $newterm)" ]; then
+    elif [ -z "$(awk -F'////' '{print $1}' /home/ty/git/definite/pairs | grep $choice)" ]; then
       dialog --msgbox "Term is undefined." 80 80
     else
       # print definition
