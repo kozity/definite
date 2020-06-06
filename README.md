@@ -12,6 +12,7 @@ Future goals:
   - possibly add functionality for terminal (w/o dialog)
   - tell user, upon attempt to recall, that pairs file is empty or nonexistent if necessary
     - handle file i/o better in general
+  - upon entering a duplicate (record) or nonexistent (recall) term, offer user opportunity to edit or create definition
 
 Edge cases (marked with (x) if it is, to my knowledge, handled:
   - (x) empty recall string
@@ -20,5 +21,8 @@ Edge cases (marked with (x) if it is, to my knowledge, handled:
   - (x) duplicate term
   - (x) nonexistent recall request
   - (x) strip leading and trailing whitespace
+
+Known issues:
+  - None
 
 Do anything you want with this source code and call it anything you'd like. I think it's cool and useful.
