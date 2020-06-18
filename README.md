@@ -3,6 +3,12 @@ Record and recall term-definition pairs.
 
 Definite [working title] is a shell script utility that allows the user to record and recall term-definition pairs from the terminal. These scripts can be run with keyboard shortcuts.
 
+Implementations:
+  - Shell, dialog, dmenu
+  - Shell, dialog
+  - Shell
+  - C (in progress)
+
 Dependencies:
   - dialog
   - dmenu
@@ -14,7 +20,7 @@ Future goals:
     - handle file i/o better in general
   - upon entering a duplicate (record) or nonexistent (recall) term, offer user opportunity to edit or create definition
 
-Edge cases (marked with (x) if it is, to my knowledge, handled:
+Edge cases (marked with (x) if it is, to my knowledge, handled):
   - (x) empty recall string
   - (x) empty record string for term
   - (x) empty record string for definition
