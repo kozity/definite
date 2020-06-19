@@ -7,11 +7,7 @@ Implementations:
   - Shell, dialog, dmenu
   - Shell, dialog
   - Shell
-  - C (in progress)
-
-Dependencies:
-  - dialog
-  - dmenu
+  - C
 
 Future goals:
   - reverse match: definition -> term using regex
@@ -19,6 +15,7 @@ Future goals:
   - tell user, upon attempt to recall, that pairs file is empty or nonexistent if necessary
     - handle file i/o better in general
   - upon entering a duplicate (record) or nonexistent (recall) term, offer user opportunity to edit or create definition
+  - C implementation: add sorting when existing pairs are listed
 
 Edge cases (marked with (x) if it is, to my knowledge, handled):
   - (x) empty recall string

@@ -3,6 +3,9 @@
 pairs=/home/ty/git/definite/pairs
 
 case $1 in
+  "list"|"l")
+    awk -F'////' '{print $1}' $pairs
+  ;;
   "record"|"i")
     if [ -z $2 ]; then
       echo "Enter term: "
