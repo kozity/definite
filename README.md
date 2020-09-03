@@ -18,14 +18,14 @@ Future goals:
   - C implementation: add sorting when existing pairs are listed
 
 Edge cases (marked with (x) if it is, to my knowledge, handled):
-  - (x) empty recall string
-  - (x) empty record string for term
-  - (x) empty record string for definition
-  - (x) duplicate term
-  - (x) nonexistent recall request
-  - (x) strip leading and trailing whitespace
+  - [x] empty recall string
+  - [x] empty record string for term
+  - [x] empty record string for definition
+  - [x] duplicate term
+  - [x] nonexistent recall request
+  - [x] strip leading and trailing whitespace
 
 Known issues:
-  - None
+  - none :) (but tell me if you discover otherwise)
 
-Do anything you want with this source code and call it anything you'd like. I think it's cool and useful.
+Do anything you want with this source code and call it anything you'd like.

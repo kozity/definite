@@ -1,10 +1,11 @@
-/* TODO implement sorting for list(), maybe */
+/* TODO : implement sorting for list(), maybe */
+/* TODO : implement signal handling to close files upon CTRL-C */
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-#define TERMS "/home/ty/git/definite/c/terms"
-#define DEFS "/home/ty/git/definite/c/definitions"
+#define TERMS "/home/ty/build/definite/c/terms"
+#define DEFS "/home/ty/build/definite/c/definitions"
 #define TEMPTERMS "/home/ty/tempterms"
 #define TEMPDEFS "/home/ty/tempdefs"
 
@@ -24,7 +25,7 @@ int delete(void) {
   char *request = NULL;
   size_t r_size = 0;
   do {
-    printf("Input term: ");
+    printf("Term to delete: ");
     getline(&request, &r_size, stdin);
   } while (strcmp(request, "\n") == 0);
 
@@ -98,6 +99,7 @@ int list(void) {
   fclose(defs);
   free(term);
   free(def);
+  
   return 0;
 }
 
@@ -109,9 +111,13 @@ int recall(void) {
     return -1;
   }
 
+  int temp_exit_status = list();
+  if (temp_exit_status != 0)
+    return temp_exit_status;
+
   char *request = NULL;
   size_t r_size = 0;
-  printf("Enter term: ");
+  printf("Term to recall: ");
   getline(&request, &r_size, stdin);
 
   char *term = NULL;
@@ -137,6 +143,7 @@ int recall(void) {
   fclose(defs);
   free(term);
   free(def);
+
   return 0;
 }
 
@@ -151,7 +158,7 @@ int record(void) {
   char *u_term = NULL;
   size_t ut_size = 0;
   do {
-    printf("Input term: ");
+    printf("Term to record: ");
     getline(&u_term, &ut_size, stdin);
   } while (strcmp(u_term, "\n") == 0);
   
@@ -199,15 +206,23 @@ int main(int argc, char *argv[]) {
     return -1;
   }
 
+  int exit_status = 0;
+
   if (strcmp(argv[1], "list") == 0)
-    return list();
+    exit_status = list();
   else if (strcmp(argv[1], "record") == 0)
-    return record();
+    exit_status = record();
   else if (strcmp(argv[1], "recall") == 0)
-    return recall();
+    exit_status = recall();
   else if (strcmp(argv[1], "delete") == 0)
-    return delete();
-  else
+    exit_status = delete();
+  else {
     printf("Invalid argument.\n");
-    return -1;
+    exit_status = -1;
+  }
+
+  printf("--PRESS ENTER TO CLOSE--");
+  getchar();
+
+  return exit_status;
 }

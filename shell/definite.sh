@@ -7,14 +7,14 @@ case $1 in
     awk -F'////' '{print $1}' $pairs
   ;;
   "record"|"i")
-    if [ -z $2 ]; then
+    if [ -z "$2" ]; then
       echo "Enter term: "
       read term
     else
       term=$2
     fi
     [ -z "$term" ] && echo "Empty input; exiting." && exit 1
-    if [ -n "$(awk -F'////' '{print $1}' $pairs | grep -x $term)" ]; then
+    if [ -n "$(awk -F'////' '{print $1}' $pairs | grep -x "$term")" ]; then
       echo "$term already defined as:"
       # echo to remove grep coloring
       echo $(grep "^$term////" $pairs | awk -F'////' '{print $2}')
@@ -37,28 +37,30 @@ case $1 in
     fi
   ;;
   "recall"|"o")
-    if [ -z $2 ]; then
+    if [ -z "$2" ]; then
       awk -F'////' '{print $1}' $pairs
       while true; do
         echo "Enter term:"
         read term
-        [ $term ] && break
+        [ "$term" ] && break
       done
     else
       term=$2
     fi
-    if [ "$(awk -F'////' '{print $1}' $pairs | grep -x $term)" ]; then
+    if [ "$(awk -F'////' '{print $1}' $pairs | grep -x "$term")" ]; then
       echo "Definition of ${term}:"
       awk -F'////' "/$term\/\/\/\//{print \$2}" $pairs
       echo "--ENTER TO CLOSE--"
       read temp
     else
-      echo "Term not found; exiting."
+      echo "Term not found."
+      echo "--ENTER TO CLOSE--"
+      read temp
       exit 1
     fi
   ;;
   "remove"|"x")
-    if [ -z $2 ]; then
+    if [ -z "$2" ]; then
       awk -F'////' '{print $1}' $pairs
       while true; do
         echo "Enter term:"
@@ -68,7 +70,7 @@ case $1 in
     else
       term=$2
     fi
-    [ "$(awk -F'////' '{print $1}' $pairs | grep -x $term)" ] && \
+    [ "$(awk -F'////' '{print $1}' $pairs | grep -x "$term")" ] && \
       sed -i "/$term\/\/\/\//d" $pairs || \
       echo "Term not found; exiting." ; exit 1
   ;;
